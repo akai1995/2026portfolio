@@ -280,3 +280,76 @@
   var year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 })();
+
+/* ---------- work gallery: arc / grid toggle ---------- */
+(function () {
+  var grid = document.querySelector(".work-grid");
+  var toggle = document.getElementById("viewToggle");
+  if (!grid || !toggle) return;
+
+  var cards = Array.prototype.slice.call(grid.querySelectorAll(".work-card"));
+  var active = Math.min(2, cards.length - 1);
+  var isArc = true;
+  var mq = window.matchMedia("(max-width: 860px)");
+
+  function layout() {
+    if (!isArc || mq.matches || !cards.length) return;
+    var w = cards[0].offsetWidth;
+    var step = w + 18;
+    cards.forEach(function (card, i) {
+      var offset = i - active;
+      var dist = Math.abs(offset);
+      var scale = dist === 0 ? 1.1 : dist === 1 ? 0.94 : dist === 2 ? 0.865 : 0.8;
+      var lift = dist === 0 ? -6 : dist === 1 ? 14 : dist === 2 ? 30 : 44;
+      var bright = dist === 0 ? 1 : dist === 1 ? 0.78 : dist === 2 ? 0.6 : 0.48;
+      card.style.transform =
+        "translate(-50%,-50%) translateX(" + (offset * step) + "px) translateY(" + lift + "px) scale(" + scale + ")";
+      card.style.filter = "brightness(" + bright + ") saturate(" + (dist === 0 ? 1 : 0.85) + ")";
+      card.style.zIndex = String(10 - dist);
+      card.classList.toggle("is-active", dist === 0);
+    });
+  }
+
+  function setActive(i) {
+    active = Math.max(0, Math.min(cards.length - 1, i));
+    layout();
+  }
+
+  function enableArc() {
+    isArc = true;
+    grid.classList.add("is-arc");
+    toggle.setAttribute("aria-pressed", "true");
+    toggle.setAttribute("aria-label", "切换为平铺展示");
+    layout();
+  }
+
+  function enableGrid() {
+    isArc = false;
+    grid.classList.remove("is-arc");
+    cards.forEach(function (card) {
+      card.style.transform = "";
+      card.style.filter = "";
+      card.style.zIndex = "";
+      card.classList.remove("is-active");
+    });
+    toggle.setAttribute("aria-pressed", "false");
+    toggle.setAttribute("aria-label", "切换为弧形展示");
+  }
+
+  cards.forEach(function (card, i) {
+    card.addEventListener("mouseenter", function () { if (isArc) setActive(i); });
+    card.addEventListener("focus", function () { if (isArc) setActive(i); });
+  });
+
+  toggle.addEventListener("click", function () {
+    if (mq.matches) return;
+    if (isArc) enableGrid(); else enableArc();
+  });
+
+  if (mq.matches) enableGrid(); else enableArc();
+
+  window.addEventListener("resize", function () {
+    if (mq.matches) { if (isArc) enableGrid(); }
+    else if (isArc) layout();
+  });
+})();
