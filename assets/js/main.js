@@ -372,3 +372,23 @@
     else if (isArc) layout();
   });
 })();
+/* hero title water ripple */
+(function () {
+  var title = document.querySelector(".hero__title--display");
+  var layer = document.getElementById("heroRipple");
+  if (!title || !layer) return;
+  var last = 0;
+  title.addEventListener("mousemove", function (e) {
+    var now = Date.now();
+    if (now - last < 70) return;
+    last = now;
+    var box = title.getBoundingClientRect();
+    var ripple = document.createElement("span");
+    var size = 88 + Math.random() * 70;
+    ripple.style.left = (e.clientX - box.left) + "px";
+    ripple.style.top = (e.clientY - box.top) + "px";
+    ripple.style.width = ripple.style.height = size + "px";
+    layer.appendChild(ripple);
+    setTimeout(function () { ripple.remove(); }, 1100);
+  });
+})();
