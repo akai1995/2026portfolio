@@ -6028,3 +6028,6 @@ body {
 }
 .work-grid.is-arc .work-card.is-active .cover{border-color:rgba(91,147,255,.5);box-shadow:0 32px 76px -32px rgba(47,107,255,.8)}
 .work-grid.is-arc{height:clamp(380px,34vw,440px)}
+/* arc view: 3 visible cards, grid-matched gap */
+.work-grid.is-arc{height:clamp(460px,38vw,540px)}
+.work-grid.is-arc .work-card{width:clamp(240px,32%,460px)}

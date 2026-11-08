@@ -288,20 +288,20 @@
   if (!grid || !toggle) return;
 
   var cards = Array.prototype.slice.call(grid.querySelectorAll(".work-card"));
-  var active = Math.min(2, cards.length - 1);
+  var active = Math.min(1, cards.length - 1);
   var isArc = true;
   var mq = window.matchMedia("(max-width: 860px)");
 
   function layout() {
     if (!isArc || mq.matches || !cards.length) return;
     var w = cards[0].offsetWidth;
-    var step = w + 18;
+    var step = w + 41;
     cards.forEach(function (card, i) {
       var offset = i - active;
       var dist = Math.abs(offset);
       var scale = dist === 0 ? 1.1 : dist === 1 ? 0.94 : dist === 2 ? 0.865 : 0.8;
       var lift = dist === 0 ? -6 : dist === 1 ? 14 : dist === 2 ? 30 : 44;
-      var bright = dist === 0 ? 1 : dist === 1 ? 0.78 : dist === 2 ? 0.6 : 0.48;
+      var bright = dist === 0 ? 1 : dist === 1 ? 0.84 : dist === 2 ? 0.68 : 0.5;
       card.style.transform =
         "translate(-50%,-50%) translateX(" + (offset * step) + "px) translateY(" + lift + "px) scale(" + scale + ")";
       card.style.filter = "brightness(" + bright + ") saturate(" + (dist === 0 ? 1 : 0.85) + ")";
@@ -336,8 +336,19 @@
     toggle.setAttribute("aria-label", "切换为弧形展示");
   }
 
+  var hoverTimer = 0;
+  var lockUntil = 0;
   cards.forEach(function (card, i) {
-    card.addEventListener("mouseenter", function () { if (isArc) setActive(i); });
+    card.addEventListener("mouseenter", function () {
+      if (!isArc || Date.now() < lockUntil) return;
+      clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(function () {
+        if (!isArc || active === i) return;
+        setActive(i);
+        lockUntil = Date.now() + 900;
+      }, 360);
+    });
+    card.addEventListener("mouseleave", function () { clearTimeout(hoverTimer); });
     card.addEventListener("focus", function () { if (isArc) setActive(i); });
   });
 
