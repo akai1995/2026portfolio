@@ -6066,3 +6066,11 @@ body {
 .cover__shot--wide{width:90%}
 }
 .work-grid.is-arc .work-card.is-active .work-card__arrow{opacity:1;transform:none;background:var(--blue)}
+/* work cards: flat surfaces, lower rounded corners, 2/3 active card */
+.work-card,.work-card .cover{border-radius:18px}
+.work-card .cover{background:#0a0e17;border:1px solid rgba(255,255,255,.12)}
+.work-card__body{background:rgba(6,8,13,.74);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:16px 20px;border-radius:0 0 18px 18px}
+.work-grid.is-arc .work-card{transition:transform .95s cubic-bezier(.45,0,.25,1),width .95s cubic-bezier(.45,0,.25,1),filter .7s ease,opacity .6s ease}
+.work-grid.is-arc .work-card.is-active .work-card__body h3{font-size:clamp(26px,2.4vw,38px)}
+.work-grid.is-arc .work-card:not(.is-active) .work-card__body h3{font-size:18px}
+.work-grid.is-arc .work-card.is-active .cover{border-color:rgba(91,147,255,.62);box-shadow:0 30px 74px -34px rgba(47,107,255,.72)}

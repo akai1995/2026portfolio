@@ -294,17 +294,21 @@
 
   function layout() {
     if (!isArc || mq.matches || !cards.length) return;
-    var w = cards[0].offsetWidth;
-    var step = w + 41;
+    var cw = grid.clientWidth;
+    var gap = 32;
+    var activeW = Math.round(cw * 0.66);
+    var sideW = Math.round((cw - activeW - gap * 2) / 2);
+    var sideX = Math.round(activeW / 2 + gap + sideW / 2);
+    grid.style.height = (Math.round(activeW * 9 / 16) + 10) + "px";
     cards.forEach(function (card, i) {
       var offset = i - active;
       var dist = Math.abs(offset);
-      var scale = dist === 0 ? 1.1 : dist === 1 ? 0.94 : dist === 2 ? 0.865 : 0.8;
-      var lift = dist === 0 ? -6 : dist === 1 ? 14 : dist === 2 ? 30 : 44;
-      var bright = dist === 0 ? 1 : dist === 1 ? 0.84 : dist === 2 ? 0.68 : 0.5;
+      card.style.width = (dist === 0 ? activeW : sideW) + "px";
       card.style.transform =
-        "translate(-50%,-50%) translateX(" + (offset * step) + "px) translateY(" + lift + "px) scale(" + scale + ")";
-      card.style.filter = "brightness(" + bright + ") saturate(" + (dist === 0 ? 1 : 0.85) + ")";
+        "translate(-50%,-50%) translateX(" + (dist === 0 ? 0 : (offset > 0 ? sideX : -sideX)) + "px)";
+      card.style.opacity = dist <= 1 ? "1" : "0";
+      card.style.filter = "brightness(" + (dist === 0 ? 1 : 0.72) + ") saturate(" + (dist === 0 ? 1 : 0.9) + ")";
+      card.style.pointerEvents = dist <= 1 ? "auto" : "none";
       card.style.zIndex = String(10 - dist);
       card.classList.toggle("is-active", dist === 0);
     });
@@ -330,8 +334,12 @@
       card.style.transform = "";
       card.style.filter = "";
       card.style.zIndex = "";
+      card.style.width = "";
+      card.style.opacity = "";
+      card.style.pointerEvents = "";
       card.classList.remove("is-active");
     });
+    grid.style.height = "";
     toggle.setAttribute("aria-pressed", "false");
     toggle.setAttribute("aria-label", "切换为弧形展示");
   }
