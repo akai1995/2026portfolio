@@ -6055,3 +6055,14 @@ body {
 .work-card__body{padding:40px 20px 18px;background:linear-gradient(to top,rgba(5,7,10,.92) 0%,rgba(5,7,10,.55) 55%,rgba(5,7,10,0) 100%)}
 .work-card__body h3{margin:0}
 .work-card__arrow{bottom:14px;right:14px}
+/* ============ work cards: unified cover & single centered shot ============ */
+.work-card .cover{background:radial-gradient(circle at 70% 44%,rgba(47,107,255,.30),transparent 58%),linear-gradient(145deg,#0d1524,#07090f 76%)}
+.cover__shot{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:block;border-radius:10px;border:1px solid rgba(255,255,255,.14);box-shadow:0 22px 54px -28px rgba(0,0,0,.95);object-fit:cover}
+.cover__shot--phone{height:90%;width:auto;max-width:none;border-radius:12px;object-position:top center}
+.cover__shot--wide{width:86%;height:auto;aspect-ratio:16/9;object-position:top center}
+.work-card__arrow{top:16px;right:16px;bottom:auto}
+@media(max-width:640px){
+.cover__shot--phone{height:88%}
+.cover__shot--wide{width:90%}
+}
+.work-grid.is-arc .work-card.is-active .work-card__arrow{opacity:1;transform:none;background:var(--blue)}
