@@ -6031,3 +6031,5 @@ body {
 /* arc view: 3 visible cards, grid-matched gap */
 .work-grid.is-arc{height:clamp(460px,38vw,540px)}
 .work-grid.is-arc .work-card{width:clamp(240px,32%,460px)}
+/* arc view: gentler ease-in-out transition */
+.work-grid.is-arc .work-card{transition:transform .95s cubic-bezier(.45,0,.25,1),filter .8s cubic-bezier(.45,0,.25,1)}

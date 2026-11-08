@@ -345,8 +345,8 @@
       hoverTimer = setTimeout(function () {
         if (!isArc || active === i) return;
         setActive(i);
-        lockUntil = Date.now() + 900;
-      }, 360);
+        lockUntil = Date.now() + 1400;
+      }, 650);
     });
     card.addEventListener("mouseleave", function () { clearTimeout(hoverTimer); });
     card.addEventListener("focus", function () { if (isArc) setActive(i); });
