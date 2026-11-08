@@ -6002,3 +6002,11 @@ body {
   }
 }
 
+
+/* Dashboard (visualization screens) */
+.case-cover__web--16x9 .cover-web{aspect-ratio:16/9}
+.cover--dashboard .cover__web{aspect-ratio:16/9}
+.cm-web--screen{width:100%}
+.cm-web--screen .cm-web__frame--plain{border-radius:14px;border:1px solid rgba(255,255,255,.14);background:#07090f}
+.cm-web--screen .cm-web__frame--plain img{width:100%;height:auto}
+.cm-web--screen .cm-web__name{font-size:18px}
