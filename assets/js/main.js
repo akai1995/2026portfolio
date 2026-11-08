@@ -372,23 +372,102 @@
     else if (isArc) layout();
   });
 })();
-/* hero title water ripple */
+/* hero title: characters deform toward the cursor movement */
 (function () {
   var title = document.querySelector(".hero__title--display");
-  var layer = document.getElementById("heroRipple");
-  if (!title || !layer) return;
-  var last = 0;
-  title.addEventListener("mousemove", function (e) {
-    var now = Date.now();
-    if (now - last < 70) return;
-    last = now;
-    var box = title.getBoundingClientRect();
-    var ripple = document.createElement("span");
-    var size = 88 + Math.random() * 70;
-    ripple.style.left = (e.clientX - box.left) + "px";
-    ripple.style.top = (e.clientY - box.top) + "px";
-    ripple.style.width = ripple.style.height = size + "px";
-    layer.appendChild(ripple);
-    setTimeout(function () { ripple.remove(); }, 1100);
+  if (!title || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  var lines = [].slice.call(title.querySelectorAll(".line > span"));
+  if (!lines.length) return;
+  var grads = [
+    "linear-gradient(96deg,#2f6bff 0%,#54d6ff 52%,#eaf4ff 100%)",
+    "linear-gradient(96deg,#eef4ff 0%,#c6d9f5 60%,#8fb0d8 100%)"
+  ];
+  var chars = [];
+
+  lines.forEach(function (line, li) {
+    var text = line.textContent;
+    line.textContent = "";
+    Array.prototype.forEach.call(text, function (c) {
+      var el = document.createElement("span");
+      el.className = "ch";
+      el.textContent = c;
+      line.appendChild(el);
+      chars.push({ el: el, line: line, li: li, bx: 0, by: 0, w: 0, tx: 0, ty: 0, sk: 0, sc: 1 });
+    });
   });
+
+  function reset() {
+    chars.forEach(function (c) { c.el.style.transform = ""; });
+  }
+
+  function paint() {
+    var titleRect = title.getBoundingClientRect();
+    lines.forEach(function (line, li) {
+      var lr = line.getBoundingClientRect();
+      var lLeft = line.offsetLeft;
+      var items = line.querySelectorAll(".ch");
+      for (var i = 0; i < items.length; i++) {
+        items[i].style.backgroundImage = grads[li] || grads[0];
+        items[i].style.backgroundSize = lr.width + "px 100%";
+        items[i].style.backgroundPosition = -(items[i].offsetLeft - lLeft) + "px 0";
+      }
+    });
+    chars.forEach(function (c) {
+      c.bx = titleRect.left + c.el.offsetLeft + c.el.offsetWidth / 2;
+      c.by = titleRect.top + c.el.offsetTop + c.el.offsetHeight / 2;
+      c.w = c.el.offsetWidth;
+    });
+  }
+
+  var mx = -9999, my = -9999, vx = 0, vy = 0, px = 0, py = 0, pt = 0;
+
+  title.addEventListener("mousemove", function (e) {
+    var now = performance.now();
+    if (pt) {
+      var dt = Math.max(12, now - pt);
+      vx = vx * 0.72 + ((e.clientX - px) / dt) * 1000 * 0.28;
+      vy = vy * 0.72 + ((e.clientY - py) / dt) * 1000 * 0.28;
+    }
+    px = e.clientX; py = e.clientY; pt = now;
+    mx = e.clientX; my = e.clientY;
+  });
+
+  title.addEventListener("mouseleave", function () {
+    mx = my = -9999; vx = vy = 0; pt = 0;
+  });
+
+  function frame() {
+    vx *= 0.9; vy *= 0.9;
+    var skew = Math.max(-14, Math.min(14, -vx * 0.016));
+    chars.forEach(function (c) {
+      var dx = c.bx - mx, dy = c.by - my;
+      var d = Math.sqrt(dx * dx + dy * dy);
+      var radius = Math.max(240, c.w * 4 + 150);
+      var t = d < radius ? Math.pow(1 - d / radius, 1.5) : 0;
+      var tx = 0, ty = 0;
+      if (d > 0.01 && t > 0) {
+        tx = (dx / d) * 20 * t;
+        ty = (dy / d) * 13 * t;
+      }
+      c.tx += (tx - c.tx) * 0.12;
+      c.ty += (ty - c.ty) * 0.12;
+      c.sk += (skew * (0.35 + 0.65 * t) - c.sk) * 0.12;
+      c.sc += ((1 + 0.05 * t) - c.sc) * 0.12;
+      c.el.style.transform = "translate3d(" + c.tx.toFixed(2) + "px," + c.ty.toFixed(2) + "px,0) skewX(" + c.sk.toFixed(2) + "deg) scale(" + c.sc.toFixed(3) + ")";
+    });
+    requestAnimationFrame(frame);
+  }
+
+  function rebuild() {
+    reset();
+    requestAnimationFrame(paint);
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(rebuild);
+  } else {
+    rebuild();
+  }
+  window.addEventListener("resize", rebuild);
+  requestAnimationFrame(frame);
 })();
