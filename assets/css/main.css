@@ -6074,3 +6074,8 @@ body {
 .work-grid.is-arc .work-card.is-active .work-card__body h3{font-size:clamp(26px,2.4vw,38px)}
 .work-grid.is-arc .work-card:not(.is-active) .work-card__body h3{font-size:18px}
 .work-grid.is-arc .work-card.is-active .cover{border-color:rgba(91,147,255,.62);box-shadow:0 30px 74px -34px rgba(47,107,255,.72)}
+/* work cards: border above title band; overflow-clipped side cards */
+.work-grid.is-arc{overflow:hidden}
+.work-card .cover{border-color:transparent}
+.work-card::after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.12);border-radius:18px;pointer-events:none;z-index:6;transition:border-color .35s ease}
+.work-grid.is-arc .work-card.is-active::after{border-color:rgba(91,147,255,.62)}

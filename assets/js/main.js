@@ -297,8 +297,8 @@
     var cw = grid.clientWidth;
     var gap = 32;
     var activeW = Math.round(cw * 0.66);
-    var sideW = Math.round((cw - activeW - gap * 2) / 2);
-    var sideX = Math.round(activeW / 2 + gap + sideW / 2);
+    var sideW = Math.round(activeW * 2 / 3);
+    var sideX = Math.round(activeW / 2 + sideW / 2 - 160);
     grid.style.height = (Math.round(activeW * 9 / 16) + 10) + "px";
     cards.forEach(function (card, i) {
       var offset = i - active;
