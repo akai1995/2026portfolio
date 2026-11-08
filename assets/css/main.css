@@ -6051,3 +6051,7 @@ body {
 .work-card__body{padding:56px 16px 18px}
 .work-card__top{top:12px;left:12px;right:12px}
 }
+/* work cards: title-only overlay */
+.work-card__body{padding:40px 20px 18px;background:linear-gradient(to top,rgba(5,7,10,.92) 0%,rgba(5,7,10,.55) 55%,rgba(5,7,10,0) 100%)}
+.work-card__body h3{margin:0}
+.work-card__arrow{bottom:14px;right:14px}
