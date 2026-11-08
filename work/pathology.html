@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分子病理系统 · 刘永柱 UI 设计师</title>
+<meta name="description" content="医院病理科后台管理系统：样本接收、检测任务、报告审核及权限管理。">
+<meta name="theme-color" content="#06070a">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script>try{if(sessionStorage.getItem('pv-nav')==='1'){document.documentElement.classList.add('from-nav');sessionStorage.removeItem('pv-nav');}}catch(e){}</script>
+</head>
+<body>
+
+<a class="skip" href="#main">跳到主要内容</a>
+
+<div class="veil" id="veil" aria-hidden="true">
+  <div class="veil__mark">
+    <span>Portfolio 2026</span>
+    <div class="veil__bar"></div>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="../index.html" aria-label="刘永柱作品集首页">
+      <span class="brand__mark">LYZ</span>
+      <span class="brand__meta">
+        <span>刘永柱</span>
+        <span>UI / Product Designer</span>
+      </span>
+    </a>
+    <nav aria-label="主导航">
+      <ul class="nav__links">
+        <li><a href="../index.html#work" class="is-active" aria-current="page">作品集</a></li>
+        <li><a href="../about.html">关于我</a></li>
+      </ul>
+    </nav>
+    <div class="nav__right">
+      <a class="btn btn--ghost nav__cta" href="mailto:hello@example.com">联系我</a>
+      <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="打开菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="../index.html#work"><span>作品集</span><span class="idx">01</span></a></li>
+    <li><a href="../about.html"><span>关于我</span><span class="idx">02</span></a></li>
+  </ul>
+  <div class="drawer__foot">
+    <span>刘永柱 · UI 设计</span>
+    <a href="mailto:hello@example.com">hello@example.com</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- CASE HERO -->
+  <section class="case-hero">
+    <span class="case-hero__glow" aria-hidden="true"></span>
+    <div class="container container--wide">
+      <a class="back-link" href="../index.html#work">← 返回作品集</a>
+      <h1>分子病理系统</h1>
+      <p class="case-hero__sub">
+        医院病理科后台管理系统
+      </p>
+      <div class="case-hero__meta">
+        <span class="tag tag--accent">WEB · 后台管理系统</span>
+        <span class="tag">已上线</span>
+      </div>
+
+      <div class="case-cover" data-reveal="scale">
+        <span class="case-cover__grid" aria-hidden="true"></span>
+        <div class="case-cover__web">
+          <div class="cover-web cover-web--side">
+            <img src="../assets/img/pathology/quality.png" alt="质控界面" width="3200" height="1694">
+          </div>
+          <div class="cover-web cover-web--main">
+            <img src="../assets/img/pathology/home.png" alt="首页界面" width="3200" height="1694">
+          </div>
+          <div class="cover-web cover-web--side">
+            <img src="../assets/img/pathology/reception.png" alt="接诊单管理界面" width="3200" height="1694">
+          </div>
+        </div>
+        <div class="case-cover__caption">
+          <span>作品封面 · 首页 / 质控 / 接诊单管理</span>
+          <span>3200 × 1694 · 真实产品截图</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container case-body case-body--wide">
+    <div class="case-flow">
+
+      <!-- 01 项目背景 -->
+      <article class="case-module case-module--wide-visual" id="background" data-reveal="scale">
+        <div class="case-module__panel">
+          <span class="case-module__en" aria-hidden="true">PROJECT</span>
+          <div class="case-module__copy">
+            <h2 class="case-module__title">项目背景</h2>
+            <p class="prose case-module__lead">
+              面向分子病理检测业务的信息化管理平台，覆盖样本接收、检测任务、报告审核及权限管理全流程，全面支撑科室日常检测与信息管控。
+            </p>
+            <div class="direction-grid direction-grid--single">
+              <div class="direction-card" data-reveal>
+                <h3>产品现状</h3>
+                <p>已正式上线并投入科室日常使用，有效提升科室人员工作效率约 40%。</p>
+              </div>
+              <div class="direction-card" data-reveal style="--d:.08s">
+                <h3>设计目标</h3>
+                <p>规范检测业务流程，打通数据流转链路，降低人工操作成本，助力科室实现高效、安全的数字化检测管理。</p>
+              </div>
+            </div>
+          </div>
+          <div class="case-module__visual case-module__visual--web">
+            <div class="cm-web cm-web--single" data-lightbox="../assets/img/pathology/home.png">
+              <span class="cm-web__frame">
+                <span class="cm-web__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img src="../assets/img/pathology/home.png" alt="首页界面" loading="lazy" width="3200" height="1694">
+              </span>
+              <span class="cm-web__name">首页 · 系统概览</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 组件库搭建 -->
+      <article class="case-module case-module--flip case-module--wide-visual" id="design-system" data-reveal="scale">
+        <div class="case-module__panel">
+          <span class="case-module__en" aria-hidden="true">SYSTEM</span>
+          <div class="case-module__copy">
+            <h2 class="case-module__title">组件库搭建</h2>
+            <div class="spec">
+              <div class="spec__panel" data-reveal>
+                <h3>颜色规范</h3>
+                <div class="swatches swatches--dense">
+                  <div class="swatch"><i style="background:#5d87ff"></i><span><b>主题色</b>#5d87ff</span></div>
+                  <div class="swatch"><i style="background:#00d99e"></i><span><b>辅助色</b>#00d99e</span></div>
+                  <div class="swatch"><i style="background:#ff4c4c"></i><span><b>辅助色</b>#ff4c4c</span></div>
+                  <div class="swatch"><i style="background:#ffae1f"></i><span><b>辅助色</b>#ffae1f</span></div>
+                  <div class="swatch"><i style="background:#29343d"></i><span><b>主要色</b>#29343d</span></div>
+                  <div class="swatch"><i style="background:#606266"></i><span><b>次要色</b>#606266</span></div>
+                  <div class="swatch"><i style="background:#909399"></i><span><b>辅助色</b>#909399</span></div>
+                  <div class="swatch"><i style="background:#a8abb2"></i><span><b>弱辅助色</b>#A8ABB2</span></div>
+                </div>
+              </div>
+              <div class="spec__panel" data-reveal style="--d:.08s">
+                <h3>字体规范 · 苹方</h3>
+                <div class="keywords">
+                  <span class="keyword">14 px</span>
+                  <span class="keyword">16 px</span>
+                  <span class="keyword">18 px</span>
+                  <span class="keyword">20 px</span>
+                  <span class="keyword">24 px</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-module__visual case-module__visual--web">
+            <div class="cm-web cm-web--single" data-lightbox="../assets/img/pathology/permissions.png">
+              <span class="cm-web__frame">
+                <span class="cm-web__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img src="../assets/img/pathology/permissions.png" alt="权限管理界面" loading="lazy" width="3200" height="1694">
+              </span>
+              <span class="cm-web__name">权限管理</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 系统界面 -->
+      <article class="case-module case-module--grid" id="interface" data-reveal="scale">
+        <div class="case-module__panel">
+          <span class="case-module__en" aria-hidden="true">INTERFACE</span>
+          <div class="case-module__copy">
+            <h2 class="case-module__title">系统界面</h2>
+            <p class="prose case-module__lead">
+              覆盖样本接收、检测任务、报告审核及权限管理全流程。
+            </p>
+          </div>
+          <div class="case-module__visual case-module__visual--web">
+            <div class="cm-web-grid">
+              <div class="cm-web" data-lightbox="../assets/img/pathology/home.png">
+                <span class="cm-web__frame">
+                  <span class="cm-web__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <img src="../assets/img/pathology/home.png" alt="首页界面" loading="lazy" width="3200" height="1694">
+                </span>
+                <span class="cm-web__name">首页</span>
+              </div>
+              <div class="cm-web" data-lightbox="../assets/img/pathology/quality.png">
+                <span class="cm-web__frame">
+                  <span class="cm-web__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <img src="../assets/img/pathology/quality.png" alt="质控界面" loading="lazy" width="3200" height="1694">
+                </span>
+                <span class="cm-web__name">质控</span>
+              </div>
+              <div class="cm-web" data-lightbox="../assets/img/pathology/reception.png">
+                <span class="cm-web__frame">
+                  <span class="cm-web__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <img src="../assets/img/pathology/reception.png" alt="接诊单管理界面" loading="lazy" width="3200" height="1694">
+                </span>
+                <span class="cm-web__name">接诊单管理</span>
+              </div>
+              <div class="cm-web" data-lightbox="../assets/img/pathology/permissions.png">
+                <span class="cm-web__frame">
+                  <span class="cm-web__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <img src="../assets/img/pathology/permissions.png" alt="权限管理界面" loading="lazy" width="3200" height="1694">
+                </span>
+                <span class="cm-web__name">权限管理</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 功能页面 -->
+      <article class="case-module case-module--flip case-module--grid" id="pages" data-reveal="scale">
+        <div class="case-module__panel">
+          <span class="case-module__en" aria-hidden="true">PAGES</span>
+          <div class="case-module__copy">
+            <h2 class="case-module__title">功能页面</h2>
+            <p class="prose case-module__lead">
+              存储设备管理与文件管理，以及数据统计。
+            </p>
+          </div>
+          <div class="case-module__visual case-module__visual--web">
+            <div class="cm-web-grid">
+              <div class="cm-web" data-lightbox="../assets/img/pathology/device-list.png">
+                <span class="cm-web__frame">
+                  <span class="cm-web__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <img src="../assets/img/pathology/device-list.png" alt="存储设备管理界面" loading="lazy" width="3200" height="1694">
+                </span>
+                <span class="cm-web__name">存储设备管理</span>
+              </div>
+              <div class="cm-web" data-lightbox="../assets/img/pathology/device-detail.png">
+                <span class="cm-web__frame">
+                  <span class="cm-web__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <img src="../assets/img/pathology/device-detail.png" alt="设备详情界面" loading="lazy" width="3200" height="1694">
+                </span>
+                <span class="cm-web__name">设备详情</span>
+              </div>
+              <div class="cm-web" data-lightbox="../assets/img/pathology/stats.png">
+                <span class="cm-web__frame">
+                  <span class="cm-web__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <img src="../assets/img/pathology/stats.png" alt="数据统计界面" loading="lazy" width="3200" height="1694">
+                </span>
+                <span class="cm-web__name">数据统计</span>
+              </div>
+              <div class="cm-web" data-lightbox="../assets/img/pathology/files.png">
+                <span class="cm-web__frame">
+                  <span class="cm-web__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <img src="../assets/img/pathology/files.png" alt="文件管理界面" loading="lazy" width="3200" height="1694">
+                </span>
+                <span class="cm-web__name">文件管理</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <a class="next-project" href="website.html">
+      <div>
+        <span>Next project</span>
+        <h3>企业官网 →</h3>
+      </div>
+      <span class="circle" aria-hidden="true">↗</span>
+    </a>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="brand__mark">LYZ</span>
+        <div class="brand__meta">
+          <span>刘永柱</span>
+          <span>UI / Product Designer</span>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4>联系方式</h4>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+          <a href="tel:13800000000">138 0000 0000</a>
+        </div>
+        <div class="footer__col">
+          <h4>页面</h4>
+          <a href="../index.html#work">作品集</a>
+          <a href="../about.html">关于我</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> 刘永柱 · UI DESIGNER</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="查看界面大图" aria-hidden="true">
+  <div class="lightbox__frame">
+    <img src="" alt="">
+    <button class="lightbox__close" type="button" aria-label="关闭">✕</button>
+    <div class="lightbox__cap"></div>
+  </div>
+</div>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

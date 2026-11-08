@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>关于我 · 刘永柱 UI 设计师</title>
+<meta name="description" content="个人简介、工作履历与个人成果。">
+<meta name="theme-color" content="#06070a">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/main.css">
+<script>try{if(sessionStorage.getItem('pv-nav')==='1'){document.documentElement.classList.add('from-nav');sessionStorage.removeItem('pv-nav');}}catch(e){}</script>
+</head>
+<body>
+
+<a class="skip" href="#main">跳到主要内容</a>
+
+<div class="veil" id="veil" aria-hidden="true">
+  <div class="veil__mark">
+    <span>Portfolio 2026</span>
+    <div class="veil__bar"></div>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="index.html" aria-label="刘永柱作品集首页">
+      <span class="brand__mark">LYZ</span>
+      <span class="brand__meta">
+        <span>刘永柱</span>
+        <span>UI / Product Designer</span>
+      </span>
+    </a>
+    <nav aria-label="主导航">
+      <ul class="nav__links">
+        <li><a href="index.html#work">作品集</a></li>
+        <li><a href="about.html" class="is-active" aria-current="page">关于我</a></li>
+      </ul>
+    </nav>
+    <div class="nav__right">
+      <a class="btn btn--ghost nav__cta" href="mailto:hello@example.com">联系我</a>
+      <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="打开菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <ul>
+    <li><a href="index.html#work"><span>作品集</span><span class="idx">01</span></a></li>
+    <li><a href="about.html"><span>关于我</span><span class="idx">02</span></a></li>
+  </ul>
+  <div class="drawer__foot">
+    <span>刘永柱 · UI 设计</span>
+    <a href="mailto:hello@example.com">hello@example.com</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="case-hero">
+    <span class="case-hero__glow" aria-hidden="true"></span>
+    <div class="container container--wide">
+      <a class="back-link" href="index.html">← 返回首页</a>
+      <h1>关于我</h1>
+    </div>
+  </section>
+
+  <div class="container case-body case-body--wide">
+
+    <div class="profile-panel" id="profile" data-reveal="scale">
+      <span class="profile-panel__grid" aria-hidden="true"></span>
+      <span class="profile-panel__glow" aria-hidden="true"></span>
+      <span class="profile-panel__num" aria-hidden="true">01</span>
+
+      <div class="profile__col">
+        <p class="eyebrow"><span class="dot"></span>01 / 个人简介</p>
+        <h2 class="profile__title">个人简介</h2>
+        <p class="profile__lead">
+          具备产品思维，能独立负责产品从 0 到 1 再到 2 的全流程：前期规划、竞品分析、原型交互、UI 视觉及开发对接。擅长 B 端与 C 端设计，兼顾平面视觉，能推动方案落地并保障最终呈现。
+        </p>
+
+        <p class="profile__sublabel">个人成果</p>
+        <div class="profile__stats">
+          <div class="profile__stat"><b>10+</b><span>主导项目</span></div>
+          <div class="profile__stat"><b>9 年+</b><span>工作经验</span></div>
+        </div>
+      </div>
+
+      <div class="profile__col profile__col--right">
+        <p class="profile__sublabel">工作履历</p>
+        <ul class="exp__list profile__timeline">
+          <li class="exp__row">
+            <span class="year">2025.10 — 2026.11</span>
+            <div>
+              <h3>昆明英派科技有限公司</h3>
+              <p>UI 设计 · 产品助理</p>
+            </div>
+          </li>
+          <li class="exp__row">
+            <span class="year">2022.03 — 2025.09</span>
+            <div>
+              <h3>云南唯恒基业科技有限公司</h3>
+              <p>UI 设计</p>
+            </div>
+          </li>
+          <li class="exp__row">
+            <span class="year">2017.03 — 2022.01</span>
+            <div>
+              <h3>基辰医疗科技（云南）有限公司</h3>
+              <p>UI / 平面设计</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="case-block" id="contact">
+      <div class="case-block__head">
+        <span class="label">02 / 联系方式</span>
+        <div>
+          <h2>联系方式</h2>
+        </div>
+      </div>
+      <div class="overview">
+        <div class="overview__cell">
+          <span>邮箱</span>
+          <b><a href="mailto:hello@example.com">hello@example.com</a></b>
+        </div>
+        <div class="overview__cell">
+          <span>电话</span>
+          <b><a href="tel:13800000000">138 0000 0000</a></b>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="brand__mark">LYZ</span>
+        <div class="brand__meta">
+          <span>刘永柱</span>
+          <span>UI / Product Designer</span>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4>联系方式</h4>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+          <a href="tel:13800000000">138 0000 0000</a>
+        </div>
+        <div class="footer__col">
+          <h4>页面</h4>
+          <a href="index.html#work">作品集</a>
+          <a href="about.html">关于我</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> 刘永柱 · UI DESIGNER</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
