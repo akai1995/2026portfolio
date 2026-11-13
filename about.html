@@ -23,21 +23,14 @@
 
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a class="brand" href="index.html" aria-label="刘永柱作品集首页">
-      <span class="brand__mark">LYZ</span>
-      <span class="brand__meta">
-        <span>刘永柱</span>
-        <span>UI / Product Designer</span>
-      </span>
-    </a>
     <nav aria-label="主导航">
       <ul class="nav__links">
-        <li><a href="index.html#work">作品集</a></li>
         <li><a href="about.html" class="is-active" aria-current="page">关于我</a></li>
+        <li><a href="index.html#work">作品集</a></li>
       </ul>
     </nav>
     <div class="nav__right">
-      <a class="btn btn--ghost nav__cta" href="mailto:hello@example.com">联系我</a>
+      <button class="btn btn--ghost nav__cta" type="button" data-contact aria-haspopup="dialog">联系我</button>
       <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="打开菜单">
         <span></span><span></span><span></span>
       </button>
@@ -47,8 +40,8 @@
 
 <div class="drawer" id="drawer" aria-hidden="true">
   <ul>
-    <li><a href="index.html#work"><span>作品集</span><span class="idx">01</span></a></li>
-    <li><a href="about.html"><span>关于我</span><span class="idx">02</span></a></li>
+    <li><a href="about.html"><span>关于我</span><span class="idx">01</span></a></li>
+    <li><a href="index.html#work"><span>作品集</span><span class="idx">02</span></a></li>
   </ul>
   <div class="drawer__foot">
     <span>刘永柱 · UI 设计</span>

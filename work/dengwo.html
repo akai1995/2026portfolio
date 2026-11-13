@@ -23,21 +23,14 @@
 
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a class="brand" href="../index.html" aria-label="刘永柱作品集首页">
-      <span class="brand__mark">LYZ</span>
-      <span class="brand__meta">
-        <span>刘永柱</span>
-        <span>UI / Product Designer</span>
-      </span>
-    </a>
     <nav aria-label="主导航">
       <ul class="nav__links">
+        <li><a href="../index.html">关于我</a></li>
         <li><a href="../index.html#work" class="is-active" aria-current="page">作品集</a></li>
-        <li><a href="../about.html">关于我</a></li>
       </ul>
     </nav>
     <div class="nav__right">
-      <a class="btn btn--ghost nav__cta" href="mailto:hello@example.com">联系我</a>
+      <button class="btn btn--ghost nav__cta" type="button" data-contact aria-haspopup="dialog">联系我</button>
       <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="打开菜单">
         <span></span><span></span><span></span>
       </button>
@@ -47,8 +40,8 @@
 
 <div class="drawer" id="drawer" aria-hidden="true">
   <ul>
-    <li><a href="../index.html#work"><span>作品集</span><span class="idx">01</span></a></li>
-    <li><a href="../about.html"><span>关于我</span><span class="idx">02</span></a></li>
+    <li><a href="../index.html"><span>关于我</span><span class="idx">01</span></a></li>
+    <li><a href="../index.html#work"><span>作品集</span><span class="idx">02</span></a></li>
   </ul>
   <div class="drawer__foot">
     <span>刘永柱 · UI 设计</span>
@@ -56,342 +49,19 @@
   </div>
 </div>
 
-<main id="main">
-
-  <!-- CASE HERO -->
-  <section class="case-hero">
-    <span class="case-hero__glow" aria-hidden="true"></span>
-    <div class="container container--wide">
-      <a class="back-link" href="../index.html#work">← 返回作品集</a>
-      <h1>等我民宿小程序</h1>
-      <p class="case-hero__sub">
-        多条件搜索筛选，高清图与详情展示，用户评价辅助决策，便捷完成预订。
-      </p>
-      <div class="case-hero__meta">
-        <span class="tag tag--accent">C 端项目</span>
-      </div>
-
-      <div class="case-cover" data-reveal="scale">
-        <span class="case-cover__grid" aria-hidden="true"></span>
-        <div class="case-cover__phones">
-          <div class="phone">
-            <img src="../assets/img/app/room-detail.jpg" alt="房型详情页：房源大图、标题、地址与入住日期" width="1500" height="3248">
-          </div>
-          <div class="phone">
-            <img src="../assets/img/app/home.jpg" alt="首页：民宿大图、目的地与日期搜索、品牌分类" width="1500" height="3248">
-          </div>
-          <div class="phone">
-            <img src="../assets/img/app/reviews-all.jpg" alt="全部评价页：整体评分与用户评价列表" width="1500" height="3248">
-          </div>
-        </div>
-        <div class="case-cover__caption">
-          <span>作品封面 · 首页 / 房型详情 / 全部评价</span>
-          <span>1500 × 3248 · 真实产品截图</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="container case-body case-body--wide">
-    <div class="case-flow">
-
-      <!-- 01 项目介绍 -->
-      <article class="case-module" id="background" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">PROJECT</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">项目介绍</h2>
-            <p class="prose case-module__lead">
-              面向用户的民宿预订小程序，支持按目的地、日期、价格、民宿类型及特色设施搜索筛选，展示民宿高清图与详情介绍，并提供用户评价板块辅助决策，帮助用户便捷完成民宿预订。
-            </p>
-          </div>
-          <div class="case-module__visual">
-            <div class="cm-phone" data-lightbox="../assets/img/app/home.jpg">
-              <img src="../assets/img/app/home.jpg" alt="首页：民宿大图、目的地与日期搜索、品牌分类" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/app/room-list.jpg">
-              <img src="../assets/img/app/room-list.jpg" alt="房源列表页：多条件筛选与房源卡片" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 02 项目目标 -->
-      <article class="case-module case-module--flip case-module--wide-copy" id="goals" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">GOAL</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">项目目标</h2>
-            <div class="goal-grid">
-              <div class="goal-card" data-reveal>
-                <h3>核心目标</h3>
-                <p>面向有民宿预订需求的用户，提供便捷、高效的一站式预订服务，帮助用户快速找到符合目的地、日期、价格、类型及设施要求的民宿，并通过清晰的信息展示和评价参考提升决策效率与预订体验。</p>
-              </div>
-              <div class="goal-card" data-reveal style="--d:.08s">
-                <h3>功能目标</h3>
-                <p>构建支持多条件搜索筛选、高清图片与详情展示、用户评价辅助决策的民宿预订小程序，形成从搜索筛选、信息查看到预订完成的完整流程，降低用户选择成本并促进便捷预订。</p>
-              </div>
-            </div>
-
-            <div class="pillar-grid">
-              <div class="pillar" data-reveal>
-                <span class="idx">A</span>
-                <h3>有个性</h3>
-                <p>民宿不同于传统酒店，是一种自由随性的生活方式。个性网红房源契合年轻人拍照打卡喜好，比酒店更新鲜、更潮流，兼具安全、新奇与自由。</p>
-              </div>
-              <div class="pillar" data-reveal style="--d:.08s">
-                <span class="idx">B</span>
-                <h3>有温度</h3>
-                <p>情感化设计与 UI 细节传递品牌亲和力，统一配色、规范页面以增强粘性；民宿如私房小菜，带来家的温暖与自由，放松身心、远离工作烦恼。</p>
-              </div>
-              <div class="pillar" data-reveal style="--d:.16s">
-                <span class="idx">C</span>
-                <h3>更便捷</h3>
-                <p>优化运营模式，减少冗余交互，提升使用效率与体验，打造高效、品质、沉浸式的民宿服务；提供丰富住宿选择，辅助用户明智决策，确保住宿符合预期。</p>
-              </div>
-            </div>
-          </div>
-          <div class="case-module__visual">
-            <div class="cm-phone" data-lightbox="../assets/img/app/room-detail.jpg">
-              <img src="../assets/img/app/room-detail.jpg" alt="房型详情页：民宿信息、地址与服务" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/app/reviews-all.jpg">
-              <img src="../assets/img/app/reviews-all.jpg" alt="全部评价页：整体评分与用户评价列表" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 03 需求对接 -->
-      <article class="case-module" id="positioning" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">CONTACT</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">需求对接</h2>
-            <div class="split">
-              <div class="split__card" data-reveal>
-                <h3><span>01</span>客户对接</h3>
-                <p>明确产品定位与目标用户，沟通多条件搜索筛选、详情、用户评价等核心功能；同步个性化、有温度、更便捷的体验设计，以及统一配色、规范页面的品牌调性。</p>
-              </div>
-              <div class="split__card" data-reveal style="--d:.08s">
-                <h3><span>02</span>产品定位</h3>
-                <p>面向年轻群体与自由随性生活方式爱好者，打造个性化、有温度、更便捷的民宿预订小程序，提供丰富住宿选择与真实评价辅助决策，以情感化设计和高效运营，带来高效、品质、沉浸式的民宿预订体验。</p>
-              </div>
-            </div>
-          </div>
-          <div class="case-module__visual">
-            <div class="cm-phone" data-lightbox="../assets/img/app/home.jpg">
-              <img src="../assets/img/app/home.jpg" alt="首页：民宿大图、目的地与日期搜索、品牌分类" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/app/share.jpg">
-              <img src="../assets/img/app/share.jpg" alt="分享页：民宿分享与好友邀请" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 04 设计目标 -->
-      <article class="case-module case-module--flip" id="layers" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">DESIGN</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">设计目标</h2>
-            <ul class="layer-list">
-              <li data-reveal>
-                <span class="k"><span>01</span>运营目标</span>
-                <p>优化运营提效降本，丰富民宿供给促进预订增长。</p>
-              </li>
-              <li data-reveal style="--d:.06s">
-                <span class="k"><span>02</span>用户体验</span>
-                <p>多条件便捷筛选，真实评价助安心决策沉浸体验。</p>
-              </li>
-              <li data-reveal style="--d:.12s">
-                <span class="k"><span>03</span>产品层</span>
-                <p>多条件搜索筛选、高清图详情与评价辅助决策，构成查找、对比、预订闭环。</p>
-              </li>
-              <li data-reveal style="--d:.18s">
-                <span class="k"><span>04</span>视觉层</span>
-                <p>统一配色与页面规范，高清图强化场景呈现，情感化 UI 传递品牌调性。</p>
-              </li>
-              <li data-reveal style="--d:.24s">
-                <span class="k"><span>05</span>体验层</span>
-                <p>精简交互与流程，助用户高效决策、便捷预订，打造品质沉浸体验。</p>
-              </li>
-            </ul>
-          </div>
-          <div class="case-module__visual">
-            <div class="cm-phone" data-lightbox="../assets/img/app/order-list.jpg">
-              <img src="../assets/img/app/order-list.jpg" alt="订单列表页：订单状态与预订信息" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/app/order-form.jpg">
-              <img src="../assets/img/app/order-form.jpg" alt="预订表单页：入住信息与订单确认" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 05 设计关键词 -->
-      <article class="case-module" id="direction" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">KEYWORD</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">设计关键词</h2>
-            <div class="keywords">
-              <span class="keyword">自由随性</span>
-              <span class="keyword">温暖亲和</span>
-              <span class="keyword">便捷高效</span>
-            </div>
-            <div class="direction-grid">
-              <div class="direction-card" data-reveal>
-                <h3>视觉风格</h3>
-                <p>以清新自然暖色调为主，统一配色规范页面，情感化 UI 细节传递品牌调性与亲和力。</p>
-              </div>
-              <div class="direction-card" data-reveal style="--d:.08s">
-                <h3>圆角轻量化</h3>
-                <p>采用圆角卡片、轻阴影与弱边框设计，增强轻松亲和感。</p>
-              </div>
-              <div class="direction-card" data-reveal style="--d:.16s">
-                <h3>空间留白</h3>
-                <p>适度留白，聚焦房源图、价格与评价等决策信息。</p>
-              </div>
-            </div>
-          </div>
-          <div class="case-module__visual">
-            <div class="cm-phone" data-lightbox="../assets/img/app/room-list.jpg">
-              <img src="../assets/img/app/room-list.jpg" alt="房源列表页：多条件筛选与房源卡片" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/app/home.jpg">
-              <img src="../assets/img/app/home.jpg" alt="首页：民宿大图、目的地与日期搜索、品牌分类" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 06 设计规范 -->
-      <article class="case-module case-module--flip case-module--wide-copy" id="spec" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">SPEC</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">设计规范</h2>
-            <div class="spec">
-              <div class="spec__panel" data-reveal>
-                <h3>文字规范 · 苹方</h3>
-                <div class="keywords">
-                  <span class="keyword">14 px</span>
-                  <span class="keyword">16 px</span>
-                  <span class="keyword">18 px</span>
-                  <span class="keyword">20 px</span>
-                  <span class="keyword">22 px</span>
-                </div>
-              </div>
-              <div class="spec__panel" data-reveal style="--d:.08s">
-                <h3>颜色规范</h3>
-                <div class="swatches">
-                  <div class="swatch"><i style="background:#EA5504"></i><span><b>主题色</b>#EA5504</span></div>
-                  <div class="swatch"><i style="background:#388DF2"></i><span><b>辅助色</b>#388DF2</span></div>
-                  <div class="swatch"><i style="background:#2EB594"></i><span><b>辅助色</b>#2EB594</span></div>
-                  <div class="swatch"><i style="background:#222222"></i><span><b>文字色</b>#222222</span></div>
-                  <div class="swatch"><i style="background:#636363"></i><span><b>文字色</b>#636363</span></div>
-                  <div class="swatch"><i style="background:#888888"></i><span><b>文字色</b>#888888</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="case-module__visual">
-            <div class="cm-phone" data-lightbox="../assets/img/app/room-detail.jpg">
-              <img src="../assets/img/app/room-detail.jpg" alt="房型详情页：民宿信息、地址与服务" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/app/review.jpg">
-              <img src="../assets/img/app/review.jpg" alt="评价详情：分项评分与评价内容" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 07 首页 -->
-      <article class="case-module" id="home" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">HOMEPAGE</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">首页</h2>
-            <div class="direction-grid direction-grid--single">
-              <div class="direction-card" data-reveal>
-                <h3>运营 banner</h3>
-                <p>以高清大图轮播形式推荐特色房源，突出房源主题与卖点，支持点击直达详情页，提升特色房源曝光与用户预订转化。</p>
-              </div>
-              <div class="direction-card" data-reveal style="--d:.08s">
-                <h3>搜索房源</h3>
-                <p>圆角卡片设计形式，通过点击可以进行切换。</p>
-              </div>
-              <div class="direction-card" data-reveal style="--d:.16s">
-                <h3>房源分类</h3>
-                <p>根据场景化房源分类，快速定位心仪房型，提升选择效率。</p>
-              </div>
-            </div>
-          </div>
-          <div class="case-module__visual case-module__visual--hero">
-            <div class="cm-phone" data-lightbox="../assets/img/app/home.jpg">
-              <img src="../assets/img/app/home.jpg" alt="首页：运营 banner、搜索房源与房源分类" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/app/room-list.jpg">
-              <img src="../assets/img/app/room-list.jpg" alt="房源列表页：多条件筛选与房源卡片" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 08 详情 -->
-      <article class="case-module case-module--flip case-module--wide-visual" id="detail" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">DETAIL</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">详情</h2>
-            <div class="direction-grid">
-              <div class="direction-card" data-reveal>
-                <h3>民宿信息</h3>
-                <p>使用卡片区分民宿信息、地址、以及服务，视觉上更清晰明朗，方便用户使用</p>
-              </div>
-              <div class="direction-card" data-reveal style="--d:.08s">
-                <h3>民宿评价</h3>
-                <p>通过查看民宿评价，可以让用户对该民宿情况有大概的了解，知道民宿的优缺点。</p>
-              </div>
-              <div class="direction-card" data-reveal style="--d:.16s">
-                <h3>民宿设施</h3>
-                <p>线性图标设计，对展示内容进行分类，用户使用时能够更快找到想查看的信息</p>
-              </div>
-              <div class="direction-card" data-reveal style="--d:.24s">
-                <h3>周边生态</h3>
-                <p>直观标注距离与步行时长，帮助用户快速评估住宿便利度。</p>
-              </div>
-            </div>
-          </div>
-          <div class="case-module__visual cm-phones--4">
-            <div class="cm-phone" data-lightbox="../assets/img/app/room-detail.jpg">
-              <img src="../assets/img/app/room-detail.jpg" alt="民宿信息：房源大图、地址与服务" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/app/reviews-all.jpg">
-              <img src="../assets/img/app/reviews-all.jpg" alt="民宿评价：整体评分与用户评价列表" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/app/review.jpg">
-              <img src="../assets/img/app/review.jpg" alt="评价详情：分项评分与评价内容" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/app/nearby.jpg">
-              <img src="../assets/img/app/nearby.jpg" alt="周边生态：设施清单与周边交通、景点距离" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <a class="next-project" href="housekeeper.html">
-      <div>
-        <span>Next project</span>
-        <h3>管家端 →</h3>
-      </div>
-      <span class="circle" aria-hidden="true">↗</span>
-    </a>
-
+<main id="main" class="case-gallery">
+  <div class="case-gallery__inner">
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/01.jpg"><img src="../assets/img/dengwo/01.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/02.jpg"><img src="../assets/img/dengwo/02.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/03.jpg"><img src="../assets/img/dengwo/03.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/04.jpg"><img src="../assets/img/dengwo/04.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/05.jpg"><img src="../assets/img/dengwo/05.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/06.jpg"><img src="../assets/img/dengwo/06.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/07.jpg"><img src="../assets/img/dengwo/07.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/08.jpg"><img src="../assets/img/dengwo/08.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/09.jpg"><img src="../assets/img/dengwo/09.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/10.jpg"><img src="../assets/img/dengwo/10.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dengwo/11.jpg"><img src="../assets/img/dengwo/11.jpg" alt=""></div>
   </div>
 </main>
 
@@ -414,7 +84,7 @@
         <div class="footer__col">
           <h4>页面</h4>
           <a href="../index.html#work">作品集</a>
-          <a href="../about.html">关于我</a>
+          <a href="../index.html">关于我</a>
         </div>
       </div>
     </div>

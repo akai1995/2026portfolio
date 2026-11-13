@@ -23,21 +23,14 @@
 
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a class="brand" href="../index.html" aria-label="刘永柱作品集首页">
-      <span class="brand__mark">LYZ</span>
-      <span class="brand__meta">
-        <span>刘永柱</span>
-        <span>UI / Product Designer</span>
-      </span>
-    </a>
     <nav aria-label="主导航">
       <ul class="nav__links">
+        <li><a href="../index.html">关于我</a></li>
         <li><a href="../index.html#work" class="is-active" aria-current="page">作品集</a></li>
-        <li><a href="../about.html">关于我</a></li>
       </ul>
     </nav>
     <div class="nav__right">
-      <a class="btn btn--ghost nav__cta" href="mailto:hello@example.com">联系我</a>
+      <button class="btn btn--ghost nav__cta" type="button" data-contact aria-haspopup="dialog">联系我</button>
       <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="打开菜单">
         <span></span><span></span><span></span>
       </button>
@@ -47,8 +40,8 @@
 
 <div class="drawer" id="drawer" aria-hidden="true">
   <ul>
-    <li><a href="../index.html#work"><span>作品集</span><span class="idx">01</span></a></li>
-    <li><a href="../about.html"><span>关于我</span><span class="idx">02</span></a></li>
+    <li><a href="../index.html"><span>关于我</span><span class="idx">01</span></a></li>
+    <li><a href="../index.html#work"><span>作品集</span><span class="idx">02</span></a></li>
   </ul>
   <div class="drawer__foot">
     <span>刘永柱 · UI 设计</span>
@@ -56,95 +49,10 @@
   </div>
 </div>
 
-<main id="main">
-
-  <!-- CASE HERO -->
-  <section class="case-hero">
-    <span class="case-hero__glow" aria-hidden="true"></span>
-    <div class="container container--wide">
-      <a class="back-link" href="../index.html#work">← 返回作品集</a>
-      <h1>可视化大屏</h1>
-      <p class="case-hero__sub">
-        LIMS 与紫外线消毒灯两套实验室数据大屏，实时呈现运营指标与消毒状态。
-      </p>
-      <div class="case-hero__meta">
-        <span class="tag tag--accent">WEB · 数据可视化</span>
-        <span class="tag">1920 × 1080</span>
-      </div>
-
-      <div class="case-cover" data-reveal="scale">
-        <span class="case-cover__grid" aria-hidden="true"></span>
-        <div class="case-cover__web case-cover__web--16x9">
-          <div class="cover-web cover-web--side">
-            <img src="../assets/img/dashboard/uv.svg" alt="紫外线消毒灯可视化大屏" width="1920" height="1080">
-          </div>
-          <div class="cover-web cover-web--main">
-            <img src="../assets/img/dashboard/lims.svg" alt="LIMS 可视化大屏" width="1920" height="1080">
-          </div>
-        </div>
-        <div class="case-cover__caption">
-          <span>作品封面 · LIMS 大屏 / 紫外线消毒灯大屏</span>
-          <span>1920 × 1080 · SVG 矢量原图</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="container case-body case-body--wide">
-    <div class="case-flow">
-
-      <!-- 01 LIMS -->
-      <article class="case-module case-module--wide-visual" id="lims" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">LIMS</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">LIMS 可视化大屏</h2>
-            <p class="prose case-module__lead">
-              汇聚科研项目、学术成果与人才数据，实时监控质控、设备及报告等运营指标，全面赋能实验室精细化管理与科学决策。
-            </p>
-          </div>
-          <div class="case-module__visual case-module__visual--web">
-            <div class="cm-web cm-web--screen" data-lightbox="../assets/img/dashboard/lims.svg">
-              <span class="cm-web__frame cm-web__frame--plain">
-                <img src="../assets/img/dashboard/lims.svg" alt="LIMS 可视化大屏" width="1920" height="1080">
-              </span>
-              <span class="cm-web__name">LIMS 可视化大屏</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 02 紫外线消毒灯 -->
-      <article class="case-module case-module--flip case-module--wide-visual" id="uv" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">UV</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">紫外线消毒灯可视化大屏</h2>
-            <p class="prose case-module__lead">
-              实时展示消毒状态与安全警示，集中统计消毒频次、灯管寿命及任务完成率，并记录人员操作明细，全面保障实验室消毒作业安全规范。
-            </p>
-          </div>
-          <div class="case-module__visual case-module__visual--web">
-            <div class="cm-web cm-web--screen" data-lightbox="../assets/img/dashboard/uv.svg">
-              <span class="cm-web__frame cm-web__frame--plain">
-                <img src="../assets/img/dashboard/uv.svg" alt="紫外线消毒灯可视化大屏" width="1920" height="1080">
-              </span>
-              <span class="cm-web__name">紫外线消毒灯可视化大屏</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <a class="next-project" href="aigc-icon.html">
-      <div>
-        <span>Next project</span>
-        <h3>icon →</h3>
-      </div>
-      <span class="circle" aria-hidden="true">↗</span>
-    </a>
-
+<main id="main" class="case-gallery">
+  <div class="case-gallery__inner">
+    <div class="case-gallery__item" data-lightbox="../assets/img/dashboard/uv.svg"><img src="../assets/img/dashboard/uv.svg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/dashboard/lims.svg"><img src="../assets/img/dashboard/lims.svg" alt=""></div>
   </div>
 </main>
 
@@ -167,7 +75,7 @@
         <div class="footer__col">
           <h4>页面</h4>
           <a href="../index.html#work">作品集</a>
-          <a href="../about.html">关于我</a>
+          <a href="../index.html">关于我</a>
         </div>
       </div>
     </div>

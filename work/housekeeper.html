@@ -23,21 +23,14 @@
 
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a class="brand" href="../index.html" aria-label="刘永柱作品集首页">
-      <span class="brand__mark">LYZ</span>
-      <span class="brand__meta">
-        <span>刘永柱</span>
-        <span>UI / Product Designer</span>
-      </span>
-    </a>
     <nav aria-label="主导航">
       <ul class="nav__links">
+        <li><a href="../index.html">关于我</a></li>
         <li><a href="../index.html#work" class="is-active" aria-current="page">作品集</a></li>
-        <li><a href="../about.html">关于我</a></li>
       </ul>
     </nav>
     <div class="nav__right">
-      <a class="btn btn--ghost nav__cta" href="mailto:hello@example.com">联系我</a>
+      <button class="btn btn--ghost nav__cta" type="button" data-contact aria-haspopup="dialog">联系我</button>
       <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="打开菜单">
         <span></span><span></span><span></span>
       </button>
@@ -47,8 +40,8 @@
 
 <div class="drawer" id="drawer" aria-hidden="true">
   <ul>
-    <li><a href="../index.html#work"><span>作品集</span><span class="idx">01</span></a></li>
-    <li><a href="../about.html"><span>关于我</span><span class="idx">02</span></a></li>
+    <li><a href="../index.html"><span>关于我</span><span class="idx">01</span></a></li>
+    <li><a href="../index.html#work"><span>作品集</span><span class="idx">02</span></a></li>
   </ul>
   <div class="drawer__foot">
     <span>刘永柱 · UI 设计</span>
@@ -56,174 +49,17 @@
   </div>
 </div>
 
-<main id="main">
-
-  <!-- CASE HERO -->
-  <section class="case-hero">
-    <span class="case-hero__glow" aria-hidden="true"></span>
-    <div class="container container--wide">
-      <a class="back-link" href="../index.html#work">← 返回作品集</a>
-      <h1>民宿管家端</h1>
-      <p class="case-hero__sub">
-        集成房态入住管理与营业分析，助力高效服务与精准运营。
-      </p>
-      <div class="case-hero__meta">
-        <span class="tag tag--accent">C 端项目</span>
-      </div>
-
-      <div class="case-cover" data-reveal="scale">
-        <span class="case-cover__grid" aria-hidden="true"></span>
-        <div class="case-cover__phones">
-          <div class="phone">
-            <img src="../assets/img/housekeeper/room-status.jpg" alt="房态主页：分店房态与入住状态" width="1500" height="3248">
-          </div>
-          <div class="phone">
-            <img src="../assets/img/housekeeper/home.jpg" alt="首页：门店信息、经营指标与待办单量" width="1500" height="3248">
-          </div>
-          <div class="phone">
-            <img src="../assets/img/housekeeper/order-entry.jpg" alt="录单页：选择房态并录入客户订单" width="1500" height="3248">
-          </div>
-        </div>
-        <div class="case-cover__caption">
-          <span>作品封面 · 房态主页 / 首页 / 录单</span>
-          <span>1500 × 3248 · 真实产品截图</span>
-        </div>
-      </div>
+<main id="main" class="case-gallery">
+  <div class="case-gallery__inner">
+    <div class="case-gallery__phones">
+    <div class="case-gallery__item" data-lightbox="../assets/img/housekeeper/home.jpg"><img src="../assets/img/housekeeper/home.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/housekeeper/room-status.jpg"><img src="../assets/img/housekeeper/room-status.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/housekeeper/order-entry.jpg"><img src="../assets/img/housekeeper/order-entry.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/housekeeper/orders.jpg"><img src="../assets/img/housekeeper/orders.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/housekeeper/order-detail.jpg"><img src="../assets/img/housekeeper/order-detail.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/housekeeper/profile.jpg"><img src="../assets/img/housekeeper/profile.jpg" alt=""></div>
+    <div class="case-gallery__item" data-lightbox="../assets/img/housekeeper/points.jpg"><img src="../assets/img/housekeeper/points.jpg" alt=""></div>
     </div>
-  </section>
-
-  <div class="container case-body case-body--wide">
-    <div class="case-flow">
-
-      <!-- 01 项目背景 -->
-      <article class="case-module" id="background" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">PROJECT</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">项目背景</h2>
-            <p class="prose case-module__lead">
-              面向民宿现场管理的运营助手 App，支持实时房态查看、入住 / 续住 / 离店操作及分店营业数据分析，帮助管家高效处理日常接待与现场运营，辅助管理者掌握关键指标、优化运营策略。
-            </p>
-          </div>
-          <div class="case-module__visual">
-            <div class="cm-phone" data-lightbox="../assets/img/housekeeper/room-status.jpg">
-              <img src="../assets/img/housekeeper/room-status.jpg" alt="房态主页：分店房态与入住状态" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/housekeeper/home.jpg">
-              <img src="../assets/img/housekeeper/home.jpg" alt="首页：门店信息、经营指标与待办单量" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 02 产品卖点 -->
-      <article class="case-module case-module--flip" id="selling-points" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">VALUE</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">产品卖点</h2>
-            <div class="keywords">
-              <span class="keyword">实时房态</span>
-              <span class="keyword">高效接待</span>
-              <span class="keyword">数据洞察</span>
-              <span class="keyword">精准运营</span>
-            </div>
-          </div>
-          <div class="case-module__visual">
-            <div class="cm-phone" data-lightbox="../assets/img/housekeeper/orders.jpg">
-              <img src="../assets/img/housekeeper/orders.jpg" alt="订单列表页：全部订单与状态筛选" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/housekeeper/order-detail.jpg">
-              <img src="../assets/img/housekeeper/order-detail.jpg" alt="订单详情页：客户与入住信息" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 03 首页 -->
-      <article class="case-module" id="home" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">HOMEPAGE</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">首页</h2>
-            <div class="direction-grid direction-grid--single">
-              <div class="direction-card" data-reveal>
-                <h3>门店与时间维度</h3>
-                <p>展示当前门店信息，并提供日、周、月、年等多维度时间筛选。</p>
-              </div>
-              <div class="direction-card" data-reveal style="--d:.08s">
-                <h3>关键经营指标</h3>
-                <p>聚合展示总营业额、总订单数、间夜数及入住率等关键经营指标。</p>
-              </div>
-              <div class="direction-card" data-reveal style="--d:.16s">
-                <h3>待办与快捷入口</h3>
-                <p>直观呈现今明两日待入住 / 待离店单量，并提供资产管理快捷入口。</p>
-              </div>
-            </div>
-          </div>
-          <div class="case-module__visual case-module__visual--hero">
-            <div class="cm-phone" data-lightbox="../assets/img/housekeeper/home.jpg">
-              <img src="../assets/img/housekeeper/home.jpg" alt="首页：门店信息、经营指标与待办单量" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/housekeeper/room-status.jpg">
-              <img src="../assets/img/housekeeper/room-status.jpg" alt="房态主页：分店房态与入住状态" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 04 录单 -->
-      <article class="case-module case-module--flip" id="order-entry" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">ORDER</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">录单</h2>
-            <p class="prose case-module__lead">
-              管家直观选择对应房态，快速录入客户订单信息，确认后即可完成订单录入。
-            </p>
-          </div>
-          <div class="case-module__visual">
-            <div class="cm-phone" data-lightbox="../assets/img/housekeeper/order-entry.jpg">
-              <img src="../assets/img/housekeeper/order-entry.jpg" alt="录单页：选择房态并录入客户订单" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/housekeeper/room-status.jpg">
-              <img src="../assets/img/housekeeper/room-status.jpg" alt="房态主页：选择对应房态" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 05 我的 -->
-      <article class="case-module" id="profile" data-reveal="scale">
-        <div class="case-module__panel">
-          <span class="case-module__en" aria-hidden="true">PROFILE</span>
-          <div class="case-module__copy">
-            <h2 class="case-module__title">我的</h2>
-            <p class="prose case-module__lead">
-              展示我的和赠送积分页面。
-            </p>
-          </div>
-          <div class="case-module__visual">
-            <div class="cm-phone" data-lightbox="../assets/img/housekeeper/profile.jpg">
-              <img src="../assets/img/housekeeper/profile.jpg" alt="我的页面：个人信息与常用功能" width="1500" height="3248">
-            </div>
-            <div class="cm-phone" data-lightbox="../assets/img/housekeeper/points.jpg">
-              <img src="../assets/img/housekeeper/points.jpg" alt="赠送积分页：积分信息与赠送操作" width="1500" height="3248">
-            </div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <a class="next-project" href="pathology.html">
-      <div>
-        <span>Next project</span>
-        <h3>分子病理系统 →</h3>
-      </div>
-      <span class="circle" aria-hidden="true">↗</span>
-    </a>
-
   </div>
 </main>
 
@@ -246,7 +82,7 @@
         <div class="footer__col">
           <h4>页面</h4>
           <a href="../index.html#work">作品集</a>
-          <a href="../about.html">关于我</a>
+          <a href="../index.html">关于我</a>
         </div>
       </div>
     </div>

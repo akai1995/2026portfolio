@@ -281,7 +281,7 @@
   if (year) year.textContent = String(new Date().getFullYear());
 })();
 
-/* ---------- work gallery: arc / grid toggle ---------- */
+/* ---------- work gallery: arc / grid / mosaic toggle ---------- */
 (function () {
   var grid = document.querySelector(".work-grid");
   var toggle = document.getElementById("viewToggle");
@@ -289,13 +289,12 @@
 
   var cards = Array.prototype.slice.call(grid.querySelectorAll(".work-card"));
   var active = Math.min(1, cards.length - 1);
-  var isArc = true;
+  var mode = "mosaic";
   var mq = window.matchMedia("(max-width: 860px)");
 
   function layout() {
-    if (!isArc || mq.matches || !cards.length) return;
+    if (mode !== "arc" || mq.matches || !cards.length) return;
     var cw = grid.clientWidth;
-    var gap = 32;
     var activeW = Math.round(cw * 0.66);
     var sideW = Math.round(activeW * 2 / 3);
     var sideX = Math.round(activeW / 2 + sideW / 2 - 160);
@@ -319,17 +318,7 @@
     layout();
   }
 
-  function enableArc() {
-    isArc = true;
-    grid.classList.add("is-arc");
-    toggle.setAttribute("aria-pressed", "true");
-    toggle.setAttribute("aria-label", "切换为平铺展示");
-    layout();
-  }
-
-  function enableGrid() {
-    isArc = false;
-    grid.classList.remove("is-arc");
+  function clearInline() {
     cards.forEach(function (card) {
       card.style.transform = "";
       card.style.filter = "";
@@ -340,36 +329,54 @@
       card.classList.remove("is-active");
     });
     grid.style.height = "";
-    toggle.setAttribute("aria-pressed", "false");
-    toggle.setAttribute("aria-label", "切换为弧形展示");
+  }
+
+  function setMode(next) {
+    mode = next;
+    grid.classList.toggle("is-arc", mode === "arc");
+    grid.classList.toggle("is-mosaic", mode === "mosaic");
+    toggle.setAttribute("data-mode", mode);
+    var label =
+      mode === "arc" ? "切换为平铺展示" :
+      mode === "grid" ? "切换为拼贴展示" : "切换为弧形展示";
+    toggle.setAttribute("aria-label", label);
+    toggle.setAttribute("title", label);
+    if (mode === "arc") {
+      layout();
+    } else {
+      clearInline();
+    }
   }
 
   var hoverTimer = 0;
   var lockUntil = 0;
   cards.forEach(function (card, i) {
     card.addEventListener("mouseenter", function () {
-      if (!isArc || Date.now() < lockUntil) return;
+      if (mode !== "arc" || Date.now() < lockUntil) return;
       clearTimeout(hoverTimer);
       hoverTimer = setTimeout(function () {
-        if (!isArc || active === i) return;
+        if (mode !== "arc" || active === i) return;
         setActive(i);
         lockUntil = Date.now() + 1400;
       }, 650);
     });
     card.addEventListener("mouseleave", function () { clearTimeout(hoverTimer); });
-    card.addEventListener("focus", function () { if (isArc) setActive(i); });
+    card.addEventListener("focus", function () { if (mode === "arc") setActive(i); });
   });
 
   toggle.addEventListener("click", function () {
     if (mq.matches) return;
-    if (isArc) enableGrid(); else enableArc();
+    setMode(mode === "arc" ? "grid" : mode === "grid" ? "mosaic" : "arc");
   });
 
-  if (mq.matches) enableGrid(); else enableArc();
+  if (mq.matches) setMode("grid"); else setMode("mosaic");
 
   window.addEventListener("resize", function () {
-    if (mq.matches) { if (isArc) enableGrid(); }
-    else if (isArc) layout();
+    if (mq.matches) {
+      if (mode !== "grid") setMode("grid");
+    } else if (mode === "arc") {
+      layout();
+    }
   });
 })();
 /* hero title: characters deform toward the cursor movement */
@@ -470,4 +477,91 @@
   }
   window.addEventListener("resize", rebuild);
   requestAnimationFrame(frame);
+})();
+
+/* ---------- contact modal ---------- */
+(function () {
+  var triggers = document.querySelectorAll("[data-contact]");
+  if (!triggers.length) return;
+
+  var modal = null;
+  var lastFocus = null;
+
+  function build() {
+    if (modal) return modal;
+    modal = document.createElement("div");
+    modal.className = "contact-modal";
+    modal.setAttribute("aria-hidden", "true");
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "contactTitle");
+    modal.innerHTML =
+      '<div class="contact-modal__panel">' +
+        '<button class="contact-modal__close" type="button" aria-label="关闭">✕</button>' +
+        '<h3 class="contact-modal__title" id="contactTitle">联系方式</h3>' +
+        '<ul class="contact-modal__list">' +
+          '<li class="contact-modal__row"><span>邮箱</span><b><a href="mailto:hello@example.com">hello@example.com</a></b></li>' +
+          '<li class="contact-modal__row"><span>电话</span><b><a href="tel:13800000000">138 0000 0000</a></b></li>' +
+          '<li class="contact-modal__row"><span>微信</span><b>liuyongzhu</b></li>' +
+        '</ul>' +
+      '</div>';
+    document.body.appendChild(modal);
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) close();
+    });
+    modal.querySelector(".contact-modal__close").addEventListener("click", close);
+    return modal;
+  }
+
+  function open(trigger) {
+    build();
+    lastFocus = trigger;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    modal.querySelector(".contact-modal__close").focus();
+  }
+
+  function close() {
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  }
+
+  triggers.forEach(function (btn) {
+    btn.addEventListener("click", function () { open(btn); });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal && modal.classList.contains("is-open")) close();
+  });
+})();
+
+/* ---------- nav: 关于我 by default, 作品集 once work section is reached ---------- */
+(function () {
+  var work = document.getElementById("work");
+  var links = document.querySelectorAll(".nav__links a");
+  if (!work || !links.length) return;
+
+  var workLink = null;
+  var aboutLink = null;
+  links.forEach(function (a) {
+    var href = a.getAttribute("href") || "";
+    if (href.indexOf("#work") !== -1) workLink = a;
+    else if (href.indexOf("index.html") !== -1) aboutLink = a;
+  });
+  if (!workLink || !aboutLink) return;
+
+  function update() {
+    var top = work.getBoundingClientRect().top + window.scrollY;
+    var onWork = window.scrollY + 140 >= top;
+    workLink.classList.toggle("is-active", onWork);
+    aboutLink.classList.toggle("is-active", !onWork);
+  }
+
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
 })();
