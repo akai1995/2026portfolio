@@ -402,9 +402,9 @@
         '<button class="contact-modal__close" type="button" aria-label="关闭">✕</button>' +
         '<h3 class="contact-modal__title" id="contactTitle">联系方式</h3>' +
         '<ul class="contact-modal__list">' +
-          '<li class="contact-modal__row"><span>邮箱</span><b><a href="mailto:hello@example.com">hello@example.com</a></b></li>' +
-          '<li class="contact-modal__row"><span>电话</span><b><a href="tel:13800000000">138 0000 0000</a></b></li>' +
-          '<li class="contact-modal__row"><span>微信</span><b>liuyongzhu</b></li>' +
+          '<li class="contact-modal__row"><span>邮箱</span><b><a href="mailto:1471519969@qq.com">1471519969@qq.com</a></b></li>' +
+          '<li class="contact-modal__row"><span>电话</span><b><a href="tel:18213064387">182 1306 4387</a></b></li>' +
+          '<li class="contact-modal__row"><span>微信</span><b>nfmeiliyou</b></li>' +
         '</ul>' +
       '</div>';
     document.body.appendChild(modal);
@@ -466,4 +466,55 @@
   update();
   window.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
+})();
+
+/* ---------- hero banner motion: 拆字入场 + 鼠标冷光 ---------- */
+(function () {
+  var hero = document.getElementById("heroStage");
+  var title = document.querySelector(".hero__title--display");
+  if (!hero || !title) return;
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced) return;
+
+  var lines = title.querySelectorAll(".line");
+  var label = [];
+  var index = 0;
+
+  lines.forEach(function (line) {
+    var target = line.querySelector("span");
+    if (!target) return;
+    var text = target.textContent;
+    label.push(text.replace(/\s+/g, " ").trim());
+    target.textContent = "";
+    text.split("").forEach(function (ch) {
+      var s = document.createElement("span");
+      s.className = "hch";
+      s.textContent = ch;
+      s.style.setProperty("--i", index++);
+      target.appendChild(s);
+    });
+    line.setAttribute("aria-hidden", "true");
+  });
+
+  if (!index) return;
+  title.setAttribute("aria-label", label.join(" "));
+  if (document.documentElement.classList.contains("from-nav")) {
+    hero.style.setProperty("--hero-delay", ".62s");
+  }
+  title.classList.add("is-split");
+
+  var spot = hero.querySelector(".hero__spot");
+  if (!spot || !window.matchMedia("(pointer: fine)").matches) return;
+
+  hero.addEventListener("pointermove", function (e) {
+    var rect = hero.getBoundingClientRect();
+    spot.style.setProperty("--mx", (((e.clientX - rect.left) / rect.width) * 100).toFixed(2) + "%");
+    spot.style.setProperty("--my", (((e.clientY - rect.top) / rect.height) * 100).toFixed(2) + "%");
+    spot.classList.add("is-on");
+  }, { passive: true });
+
+  hero.addEventListener("pointerleave", function () {
+    spot.classList.remove("is-on");
+  });
 })();

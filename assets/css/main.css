@@ -1,5 +1,5 @@
-﻿/* =========================================================
-   Portfolio 2026 — 刘永柱 / UI Designer
+/* =========================================================
+   Portfolio 2026 — 李开顺 / UI Designer
    Design system: dark editorial, electric blue accent
    ========================================================= */
 
@@ -6203,7 +6203,7 @@ body {
   display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 18px;
   border-radius:14px;border:1px solid rgba(120,160,255,.14);background:rgba(255,255,255,.03);
 }
-.contact-modal__row span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.contact-modal__row span{font-family:var(--mono);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .contact-modal__row b{font-size:16px;font-weight:500;letter-spacing:.01em;color:var(--ink)}
 .contact-modal__row a{color:inherit;text-decoration:none}
 .contact-modal__row a:hover{color:var(--blue-soft)}
@@ -6283,4 +6283,170 @@ body {
   .case-gallery{padding:88px 0 56px}
   .case-gallery__inner{width:calc(100vw - 32px)}
   .case-gallery__phones{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+}
+
+/* =========================================================
+   HERO BANNER MOTION — 利落科技感：故障切入 / 锐利扫描 / HUD
+   仅作用首页 banner；prefers-reduced-motion 下全部关闭
+   ========================================================= */
+
+/* 0 · 把原有的柔光扫描条改锐、改快 */
+.hero__scan{
+  width:22%;
+  background:linear-gradient(90deg,transparent,rgba(84,214,255,.06) 40%,rgba(170,225,255,.24) 50%,rgba(84,214,255,.06) 60%,transparent);
+  filter:blur(2px);
+  animation-duration:6s;
+}
+
+/* 1 · 标题：硬切入 + 色散故障（JS 拆字后由 .is-split 接管） */
+.hero__title--display{--gx-a:rgba(84,214,255,.72);--gx-b:rgba(255,64,120,.55)}
+.hero__title--display .line{perspective:none}
+.hero__title--display.is-split .line > span{
+  animation:none!important;transform:none!important;opacity:1!important;
+}
+.hero__title--display .hch{
+  display:inline-block;white-space:pre;
+  color:#f2f8ff;
+  opacity:0;
+  transform:translate3d(0,104%,0) scaleY(1.16);
+  transform-origin:50% 100%;
+  backface-visibility:hidden;
+  will-change:transform,opacity;
+  text-shadow:0 0 20px rgba(84,214,255,.22);
+  animation:
+    hchSnap .42s cubic-bezier(.2,.95,.2,1) calc(var(--hero-delay,.06s) + var(--i,0) * 13ms) forwards,
+    hchGlitch 6.4s steps(1,end) calc(var(--hero-delay,.06s) + var(--i,0) * 13ms + 1.6s) infinite;
+}
+@keyframes hchSnap{
+  0%{opacity:0;transform:translate3d(0,104%,0) scaleY(1.16);text-shadow:3px 0 var(--gx-a),-3px 0 var(--gx-b)}
+  30%{opacity:1}
+  55%{transform:translate3d(0,0,0) scaleY(1);text-shadow:1px 0 var(--gx-a),-1px 0 var(--gx-b)}
+  100%{opacity:1;transform:none;text-shadow:0 0 20px rgba(84,214,255,.22)}
+}
+@keyframes hchGlitch{
+  0%{text-shadow:2px 0 var(--gx-a),-2px 0 var(--gx-b);transform:translate3d(1px,0,0) skewX(-1.2deg)}
+  1.4%{text-shadow:0 0 20px rgba(84,214,255,.22);transform:none}
+  2.8%{text-shadow:-3px 0 var(--gx-a),3px 0 var(--gx-b);transform:translate3d(-1px,0,0)}
+  4.2%{text-shadow:0 0 20px rgba(84,214,255,.22);transform:none}
+  100%{text-shadow:0 0 20px rgba(84,214,255,.22);transform:none}
+}
+.hero__title--display.is-split{animation:titleJit 8.5s steps(1,end) 2.4s infinite}
+@keyframes titleJit{
+  0%{transform:none;filter:none}
+  .6%{transform:translate3d(-2px,1px,0);filter:brightness(1.2) saturate(1.1)}
+  1.4%{transform:translate3d(2px,-1px,0)}
+  2.2%{transform:none;filter:none}
+  100%{transform:none;filter:none}
+}
+
+/* 2 · 锐利扫描光条（竖向快扫） */
+.hero__sheen{
+  position:absolute;top:-15%;bottom:-15%;left:0;width:15%;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(84,214,255,.04) 26%,
+    rgba(150,235,255,.5) 49%,
+    rgba(255,255,255,.7) 51%,
+    rgba(84,214,255,.04) 74%,
+    transparent 100%);
+  mix-blend-mode:screen;
+  opacity:0;
+  transform:translate3d(-120%,0,0) skewX(-14deg);
+  animation:heroSheen 6.2s cubic-bezier(.35,0,.15,1) 1s infinite;
+}
+@keyframes heroSheen{
+  0%{transform:translate3d(-120%,0,0) skewX(-14deg);opacity:0}
+  1.5%{opacity:1}
+  10%{transform:translate3d(780%,0,0) skewX(-14deg);opacity:0}
+  100%{transform:translate3d(780%,0,0) skewX(-14deg);opacity:0}
+}
+
+/* 3 · CRT 行扫描（横向亮线自上而下） */
+.hero__crt{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,
+    transparent calc(50% - 1px),
+    rgba(150,235,255,.55) 50%,
+    transparent calc(50% + 1px));
+  mix-blend-mode:screen;
+  opacity:0;
+  transform:translate3d(0,-100%,0);
+  animation:heroCrt 7s linear 1.4s infinite;
+}
+@keyframes heroCrt{
+  0%{transform:translate3d(0,-100%,0);opacity:0}
+  3%{opacity:.55}
+  62%{opacity:.35}
+  88%{opacity:0}
+  100%{transform:translate3d(0,100%,0);opacity:0}
+}
+
+/* 4 · HUD 四角框 */
+.hero__frame{
+  --hud:rgba(120,200,255,.4);
+  position:absolute;inset:18px;pointer-events:none;opacity:0;
+  background-image:
+    linear-gradient(var(--hud),var(--hud)),linear-gradient(var(--hud),var(--hud)),
+    linear-gradient(var(--hud),var(--hud)),linear-gradient(var(--hud),var(--hud)),
+    linear-gradient(var(--hud),var(--hud)),linear-gradient(var(--hud),var(--hud)),
+    linear-gradient(var(--hud),var(--hud)),linear-gradient(var(--hud),var(--hud));
+  background-repeat:no-repeat;
+  background-size:
+    30px 1px,1px 30px,30px 1px,1px 30px,
+    30px 1px,1px 30px,30px 1px,1px 30px;
+  background-position:
+    left top,left top,right top,right top,
+    left bottom,left bottom,right bottom,right bottom;
+  animation:hudIn .4s steps(3,end) 1.05s forwards;
+}
+@keyframes hudIn{from{opacity:0;transform:scale(1.012)}to{opacity:1;transform:none}}
+
+/* 5 · 鼠标准星 + 冷光 */
+.hero__spot{
+  position:absolute;inset:0;opacity:0;
+  background:radial-gradient(190px circle at var(--mx,50%) var(--my,40%),rgba(120,205,255,.15),rgba(120,205,255,.04) 44%,transparent 68%);
+  mix-blend-mode:screen;
+  transition:opacity .22s linear;
+}
+.hero__spot::before,.hero__spot::after{
+  content:"";position:absolute;background:rgba(130,210,255,.26);
+}
+.hero__spot::before{left:var(--mx,50%);top:0;bottom:0;width:1px}
+.hero__spot::after{top:var(--my,40%);left:0;right:0;height:1px}
+.hero__spot.is-on{opacity:1}
+
+/* 6 · 背景与文案分层视差（--px/--py 由 main.js 写入） */
+#heroStage .hero__bg{
+  transform:translate3d(calc(var(--px,0) * 12px),calc(var(--py,0) * 12px),0);
+}
+#heroStage .hero__copy{
+  transform:translate3d(calc(var(--px,0) * -7px),calc(var(--py,0) * -7px),0);
+}
+#heroStage .hero__bg,#heroStage .hero__copy{will-change:transform}
+
+/* 7 · 按钮 / 标签硬切入 */
+.hero--center .hero__actions{opacity:0;animation:hudCut .26s steps(2,end) .70s forwards}
+.hero--center .hero__tags{opacity:0;animation:hudCut .26s steps(2,end) .84s forwards}
+@keyframes hudCut{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* 8 · 点阵呼吸 */
+.hero__tech{animation:techPulse 5.6s steps(6,end) 1.2s infinite}
+@keyframes techPulse{0%,100%{opacity:.95}50%{opacity:.72}}
+
+/* 9 · 无障碍：减少动态 */
+@media(prefers-reduced-motion:reduce){
+  .hero__title--display .hch{opacity:1;transform:none;animation:none;text-shadow:none}
+  .hero__title--display.is-split{animation:none}
+  .hero__sheen,.hero__crt,.hero__spot,.hero__frame{display:none}
+  #heroStage .hero__bg,#heroStage .hero__copy{transform:none;will-change:auto}
+  .hero--center .hero__actions,.hero--center .hero__tags{opacity:1;transform:none;animation:none}
+  .hero__tech{animation:none}
+}
+
+/* 10 · 移动端收敛 */
+@media(max-width:860px){.hero__frame{inset:12px}}
+@media(max-width:640px){
+  .hero__frame{inset:10px}
+  .hero__crt{display:none}
+  .hero__sheen{width:26%}
 }
